@@ -1,0 +1,13 @@
+name: AI Security Check
+on: [push]
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: VULNRA LLM Security Scan
+        uses: realjagsingh42-dotcom/vulnra-action@v1
+        with:
+          target_url: https://httpbin.org/post
+          api_key: test-key
+          fail_threshold: 9.5
